@@ -1,0 +1,53 @@
+
+// TASK 2
+
+#define NUM_OF_GLASS 100
+#define NUM_OF_DEVS 5
+monitor{
+    condition developer[NUM_OF_DEVS]; // Number of developer
+    int waiting[NUM_OF_DEVS]; // Waiting List
+
+    int initiliaze(){
+        int jar = NUM_OF_GLASS;
+
+    }
+
+    int developer(int i){
+        int flag = 0; // 0 = no one pouring atm, 1 = someone pouring
+        int w_flag = 0; // 0 = no one called waiter, 1 = someone already called waiter
+        
+
+        //if someone is already pouring
+        if(flag==1){
+            waiting.append(i);
+            developer[i].wait()
+        }
+
+        //if no one is pouring
+        flag = 1;
+        //if the jar is empty
+        if(jar == 0){
+            if(w_flag == 0){
+                waiter();
+                w_flag=1;
+            }
+            waiting.append(i);
+            developer[i].wait();
+        }
+        drink--;
+        flag = 0;
+        
+        //if someone want for a drink in the meantime
+        if(!waiting.empty()){
+            k = waiting.pop_from_head();
+            developer[k].signal
+        }
+
+    }
+
+    int waiter(){
+        jar = NUM_OF_GLASS;
+        k = waiting.pop_from_head();
+        developer[k].signal
+    }
+}
