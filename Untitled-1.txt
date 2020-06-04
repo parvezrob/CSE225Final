@@ -24,7 +24,7 @@ monitor{
         }
 
         //if no one is pouring
-        flag = 1;
+        flag = 1
         //if the jar is empty
         if(jar == 0){
             if(w_flag == 0){
